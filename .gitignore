@@ -1,0 +1,81 @@
+# .gitignore
+
+# === Python / Poetry ===
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Poetry virtualenv folder (if created within the project)
+.venv/
+
+# Test & Coverage Artifacts
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# MyPy cache
+.mypy_cache/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# === Node.js / Next.js / Yarn ===
+# Dependencies
+node_modules/
+
+# Next.js build output and cache
+.next/
+out/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript cache file
+*.tsbuildinfo
+
+# === IDE / Editor ===
+# VS Code
+.vscode/
+# PyCharm / IntelliJ
+.idea/
+
+# === Operating System Files ===
+# macOS
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# === Sensitive Configuration ===
+# Environment variables - **DO NOT COMMIT ACTUAL SECRETS**
+# Commit a .env.example file instead.
+.env
+.env.*
+!.env.example
+!.env.template
+
+# === Project Specific ===
+# Log files
+*.log
+logs/
+
+# Generated model files (Pickle)
+*.pkl
+# If models are saved within a specific source directory accidentally (unlikely with volumes)
+# app/models/*.pkl
+
+# Docker volume data (These are managed by Docker, not Git)
+# postgres_data/ # Generally not mapped directly to source tree
+# model_data/    # Generally not mapped directly to source tree
+
+# Other generated files...
