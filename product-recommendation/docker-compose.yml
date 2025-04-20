@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      # 既存の DATABASE_URL (config.py でこれから組み立てるなら不要かも)
+      - DATABASE_URL=postgresql://user:password@db:5432/recommendation_db
+
+      - POSTGRES_SERVER=db # DBサービスのホスト名 (サービス名'db'を指定)
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=recommendation_db
+
+      # ★★★ JWT関連の設定 (config.py で読み込む想定) ★★★
+      # 注意: SECRET_KEY は必ず複雑な独自の値に変更し、本来は .env ファイルや Secret 管理ツールで管理してください
+      - SECRET_KEY=your_super_secret_key_that_should_be_changed
+      - ALGORITHM=HS256
+      - ACCESS_TOKEN_EXPIRE_MINUTES=30
+
+      # モデルパス
+      - MODEL_PATH=/app/models/recommender.pkl
+    volumes:
+      - model_data:/app/models
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:8000
+    depends_on:
+      - backend
+
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=recommendation_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d recommendation_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  batch:
+    build:
+      context: ./backend # ビルドコンテキストはこれで正しい想定
+      dockerfile: batch/Dockerfile
+    volumes:
+      - model_data:/app/models # モデル永続化
+    environment:
+      # Pythonスクリプト(SessionLocal)用
+      - DATABASE_URL=postgresql://user:password@db:5432/recommendation_db
+      # run_batch.sh の psql 待機ループ用 (dbサービスの値と合わせる)
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=recommendation_db
+      # train_recommender.py のモデル保存/ロード用
+      - MODEL_PATH=/app/models/recommender.pkl
+    depends_on:
+      db:
+        # DBがHealthy状態になるまで待つ (推奨)
+        condition: service_healthy
+      # backend の起動を待つ設定も可能だが、初期化完了は保証しない
+      # backend:
+      #   condition: service_started
+
+volumes:
+  postgres_data:
+  model_data: # モデル保存用ボリューム

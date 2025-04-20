@@ -1,0 +1,88 @@
+# 依存関係
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# ビルド出力
+.next
+out
+build
+
+# テスト
+coverage
+.nyc_output
+
+# 環境設定
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# バージョン管理
+.git
+.gitignore
+.github
+
+# エディタ設定
+.idea
+.vscode
+*.swp
+*.swo
+
+# その他
+.DS_Store
+*.log
+*.md
+*.txt
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
+
+# 画像（必要に応じて）
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.svg
+*.ico
+*.webp
+
+# 動画・音声
+*.mp4
+*.mov
+*.avi
+*.mp3
+*.wav
+*.ogg
+
+# ドキュメント
+docs/
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+
+# サンプルデータ
+sample-data/
+test-data/
+mock-data/
+
+# 一時ファイル
+*.tmp
+*.temp
+*.bak
+*.backup 
