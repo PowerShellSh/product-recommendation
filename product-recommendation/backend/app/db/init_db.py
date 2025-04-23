@@ -7,16 +7,16 @@ from app.db.session import engine   # SQLAlchemy Engine
 
 # --- 初期データ ---
 initial_products = [
-    {"name": "スマートフォン", "description": "最新のスマートフォン", "price": 89800, "category": "電化製品", "image_url": "https://example.com/smartphone.jpg"},
-    {"name": "ゲーミングノートパソコン", "description": "高性能ゲーミングノートPC、最新のグラフィックカード搭載", "price": 198000, "category": "電化製品", "image_url": "https://example.com/gaming_laptop.jpg"},
-    {"name": "ヘッドフォン", "description": "ノイズキャンセリング機能付き", "price": 34800, "category": "オーディオ", "image_url": "https://example.com/headphones.jpg"},
-    {"name": "電気ケトル", "description": "1L容量のコンパクト電気ケトル", "price": 4500, "category": "キッチン家電", "image_url": "https://example.com/electric_kettle.jpg"},
-    {"name": "スマートウォッチ", "description": "多機能スマートウォッチ、心拍センサー搭載", "price": 23800, "category": "電化製品", "image_url": "https://example.com/smartwatch.jpg"},
-    {"name": "ブレンダー", "description": "多用途ブレンダー、スムージー作りに最適", "price": 9800, "category": "キッチン家電", "image_url": "https://example.com/blender.jpg"},
-    {"name": "タブレット", "description": "高解像度ディスプレイ搭載のタブレット端末", "price": 55000, "category": "電化製品", "image_url": "https://example.com/tablet.jpg"},
-    {"name": "スピーカー", "description": "高音質ワイヤレススピーカー", "price": 12500, "category": "オーディオ", "image_url": "https://example.com/speaker.jpg"},
-    {"name": "マウス", "description": "ゲーミングマウス、プログラマブルボタン付き", "price": 7600, "category": "コンピュータ周辺機器", "image_url": "https://example.com/mouse.jpg"},
-    {"name": "キーボード", "description": "メカニカルキーボード、RGBライティング付き", "price": 13500, "category": "コンピュータ周辺機器", "image_url": "https://example.com/keyboard.jpg"}
+    {"name": "スマートフォン", "description": "最新のスマートフォン", "price": 89800, "category": "電化製品", "image_url": "https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg"},
+    {"name": "ゲーミングノートパソコン", "description": "高性能ゲーミングノートPC、最新のグラフィックカード搭載", "price": 198000, "category": "電化製品", "image_url": "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg"},
+    {"name": "ヘッドフォン", "description": "ノイズキャンセリング機能付き", "price": 34800, "category": "オーディオ", "image_url": "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg"},
+    {"name": "電気ケトル", "description": "1L容量のコンパクト電気ケトル", "price": 4500, "category": "キッチン家電", "image_url": "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg"},
+    {"name": "スマートウォッチ", "description": "多機能スマートウォッチ、心拍センサー搭載", "price": 23800, "category": "電化製品", "image_url": "https://fakestoreapi.com/img/81gjAxhHpnL._AC_SL1500_.jpg"},
+    {"name": "ブレンダー", "description": "多用途ブレンダー、スムージー作りに最適", "price": 9800, "category": "キッチン家電", "image_url": "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg"},
+    {"name": "タブレット", "description": "高解像度ディスプレイ搭載のタブレット端末", "price": 55000, "category": "電化製品", "image_url": "https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg"},
+    {"name": "スピーカー", "description": "高音質ワイヤレススピーカー", "price": 12500, "category": "オーディオ", "image_url": "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg"},
+    {"name": "マウス", "description": "ゲーミングマウス、プログラマブルボタン付き", "price": 7600, "category": "コンピュータ周辺機器", "image_url": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"},
+    {"name": "キーボード", "description": "メカニカルキーボード、RGBライティング付き", "price": 13500, "category": "コンピュータ周辺機器", "image_url": "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg"}
 ]
 
 initial_users = [

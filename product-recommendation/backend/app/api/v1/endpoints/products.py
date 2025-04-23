@@ -22,7 +22,6 @@ def get_db():
 
 router = APIRouter()
 
-# ★★★ 修正: response_model を List[schemas_product] に変更 ★★★
 @router.get("/", response_model=List[schemas_product], tags=["Products"])
 async def read_products(
     skip: int = 0,   # ページネーション用: スキップする件数
@@ -36,7 +35,6 @@ async def read_products(
     products = db.query(models_product).offset(skip).limit(limit).all()
     return products
 
-# ★★★ 修正: response_model を schemas_product に変更 ★★★
 @router.get("/{id}", response_model=schemas_product, tags=["Products"])
 async def read_product(
     id: int, # パスパラメータ
